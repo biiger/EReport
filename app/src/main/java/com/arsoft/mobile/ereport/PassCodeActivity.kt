@@ -8,6 +8,11 @@ import android.widget.Toast
 import com.arsoft.mobile.ereport.user.User
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_pass_code.*
+import com.marcoscg.fingerauth.FingerAuth
+import android.content.DialogInterface
+import com.marcoscg.fingerauth.FingerAuthDialog
+
+
 
 
 
@@ -33,6 +38,29 @@ class PassCodeActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pass_code)
 
+        frigerprint.setOnClickListener {
+            FingerAuthDialog(this)
+                    .setTitle("Friger print authetication.")
+                    .setCancelable(false)
+                    .setMaxFailedCount(4) // Number of attemps, default 3
+                    .setOnFingerAuthListener(object : FingerAuth.OnFingerAuthListener {
+                        override fun onSuccess() {
+                            Toasty.success(this@PassCodeActivity, "onSuccess", Toast.LENGTH_SHORT).show()
+                            var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
+                            startActivity(intent)
+
+                        }
+
+                        override fun onFailure() {
+                            Toasty.error(this@PassCodeActivity, "onFailure", Toast.LENGTH_SHORT).show()
+                        }
+
+                        override fun onError() {
+                            Toasty.error(this@PassCodeActivity, "onError", Toast.LENGTH_SHORT).show()
+                        }
+                    })
+                    .show()
+        }
 
         passCode = User.checkPassCode(this)
         if (passCode != null) {
