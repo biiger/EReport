@@ -40,7 +40,7 @@ class PassCodeActivity : AppCompatActivity(), View.OnClickListener {
 
         frigerprint.setOnClickListener {
             FingerAuthDialog(this)
-                    .setTitle("Friger print authetication.")
+                    .setTitle("Friger print authentication.")
                     .setCancelable(false)
                     .setMaxFailedCount(4) // Number of attemps, default 3
                     .setOnFingerAuthListener(object : FingerAuth.OnFingerAuthListener {
@@ -89,7 +89,8 @@ class PassCodeActivity : AppCompatActivity(), View.OnClickListener {
         when (stage) {
             Stage.ENTER -> {
                 if (passCode.equals(input)) {
-                    finish()
+                    var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
+                    startActivity(intent)
                 } else {
                     inputCount++
                     Toasty.error(this, "incorrect : $inputCount times.", Toast.LENGTH_SHORT).show()

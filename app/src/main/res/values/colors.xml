@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="transparent_white_80">#CCFFFFFF</color>
     <color name="colorButton">#edb228</color>
     <color name="colorPrimary">#274198</color>
     <color name="colorPrimaryDark">#213f9a</color>
