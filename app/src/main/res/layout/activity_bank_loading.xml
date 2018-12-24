@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        tools:context=".module.register.BankLoadingActivity">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ProgressBar
+                android:id="@+id/activity_bank_loading__pb_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"/>
+
+        <TextView
+                android:id="@+id/activity_bank_loading__tv_iden_process"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/activity_bank_loading__pb_loading"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:text="@string/iden"/>
+
+        <ImageView
+                android:id="@+id/activity_bank_loading__iv_logo"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/activity_bank_loading__tv_iden_process"
+                android:src="@drawable/scb_logo"/>
+    </RelativeLayout>
+</RelativeLayout>
