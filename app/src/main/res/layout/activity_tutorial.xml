@@ -58,7 +58,7 @@
                 android:text="เริ่มต้นการใช้งาน"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
-                android:background="@color/colorButton"
+                android:background="@drawable/btn_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"

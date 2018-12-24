@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_create_account_details.*
 import java.io.File
 import com.arsoft.mobile.ereport.MainActivity
 import android.content.pm.PackageManager
+import com.arsoft.mobile.ereport.LoginActivity
 import com.fxn.utility.PermUtil
 
 class CreateAccountDetailsActivity : AppCompatActivity() {
@@ -154,8 +155,9 @@ class CreateAccountDetailsActivity : AppCompatActivity() {
     private fun alertDialogConfirm() {
         val builder = AlertDialog.Builder(this@CreateAccountDetailsActivity)
         builder.setTitle("ยืนยันตัวตน")
+        builder.setMessage("กรุณายืนยันตัวตนผ่านลิ้งค์ที่ระบบได้จัดส่งไปให้คุณผ่านทางอีเมล์ เพื่อทำการเปิดใช้งานบัญชีผู้ใช้")
         builder.setPositiveButton("ตกลง") { _, _ ->
-            startActivity(Intent(this@CreateAccountDetailsActivity, MainActivity::class.java))
+            startActivity(Intent(this@CreateAccountDetailsActivity, LoginActivity::class.java))
         }
         // Finally, make the alert dialog using builder
         val dialog: AlertDialog = builder.create()
