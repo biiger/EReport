@@ -100,6 +100,9 @@ class CreateAccountDetailsActivity : AppCompatActivity() {
         "อุบลราชธานี"
     )
 
+    val arrAmphoe = arrayListOf("เลือกอำเภอ","เจริญนคร", "หนองแขม")
+    val arrDistrict = arrayListOf("เลือกตำบล","คลองต้นไทร", "หนองค้างพลู")
+
     val ImageRequestCode: Int = 23145
 
     private val MY_PERMISSIONS_REQUEST_CAMERA = 100
@@ -110,6 +113,8 @@ class CreateAccountDetailsActivity : AppCompatActivity() {
 
         //Adapter for spinner
         activity_create_account_details__spn_province.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrProvince)
+        activity_create_account_details__spn_amphoe.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrAmphoe)
+        activity_create_account_details__spn_district.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrDistrict)
 
         activity_create_account_details__rl_profile.setOnClickListener {
 //            alertDialogSelectPhotoFrom()
@@ -121,12 +126,14 @@ class CreateAccountDetailsActivity : AppCompatActivity() {
             val surname = activity_create_account_details__et_surname.text
             val tel = activity_create_account_details__et_tel.text
             val address = activity_create_account_details__et_address.text
-            val district = activity_create_account_details__et_district.text
-            val amphoe = activity_create_account_details__et_amphoe.text
+//            val district = activity_create_account_details__et_district.text
+//            val amphoe = activity_create_account_details__et_amphoe.text
+            val district = activity_create_account_details__spn_district.selectedItem.toString()
+            val amphoe = activity_create_account_details__spn_amphoe.selectedItem.toString()
             val province = activity_create_account_details__spn_province.selectedItem.toString()
             val postcode = activity_create_account_details__et_postcode.text
 
-            if (name.isEmpty() || surname.isEmpty() || tel.isEmpty() || address.isEmpty() || district.isEmpty() || amphoe.isEmpty() || province.equals("") || postcode.isEmpty()) {
+            if (name.isEmpty() || surname.isEmpty() || tel.isEmpty() || address.isEmpty() || district.equals("เลือกตำบล") || amphoe.equals("เลือกอำเภอ") || province.equals("เลือกจังหวัด") || postcode.isEmpty()) {
                 Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบ!", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }

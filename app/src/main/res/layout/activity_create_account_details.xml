@@ -79,23 +79,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                <EditText
-                        android:id="@+id/activity_create_account_details__et_amphoe"
+                <!--<EditText-->
+                        <!--android:id="@+id/activity_create_account_details__et_amphoe"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:hint="@string/amphoe"-->
+                        <!--android:maxLines="1"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_marginTop="4dp"/>-->
+
+                <!--<EditText-->
+                        <!--android:id="@+id/activity_create_account_details__et_district"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:hint="@string/district"-->
+                        <!--android:maxLines="1"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_marginTop="4dp"/>-->
+
+                <Spinner
+                        android:id="@+id/activity_create_account_details__spn_district"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/amphoe"
-                        android:maxLines="1"
-                        android:singleLine="true"
                         android:layout_weight="1"
                         android:layout_marginTop="4dp"/>
 
-                <EditText
-                        android:id="@+id/activity_create_account_details__et_district"
+                <Spinner
+                        android:id="@+id/activity_create_account_details__spn_amphoe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/district"
-                        android:maxLines="1"
-                        android:singleLine="true"
                         android:layout_weight="1"
                         android:layout_marginTop="4dp"/>
             </LinearLayout>
