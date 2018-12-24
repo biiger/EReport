@@ -62,14 +62,14 @@ class PassCodeActivity : AppCompatActivity(), View.OnClickListener {
                     .show()
         }
 
-        passCode = User.checkPassCode(this)
-        if (passCode != null) {
-            stage = Stage.ENTER
-            pass_code_title.text = "กรุณายืนยันรหัส PIN"
-        } else {
-            stage = Stage.SET
-            pass_code_title.text = "กรุณาใส่รหัส PIN"
-        }
+//        passCode = User.checkPassCode(this)
+//        if (passCode != null) {
+//            stage = Stage.ENTER
+//            pass_code_title.text = "กรุณายืนยันรหัส PIN"
+//        } else {
+//            stage = Stage.SET
+//            pass_code_title.text = "กรุณาใส่รหัส PIN"
+//        }
     }
 
     private fun input(num: Int) {
@@ -86,42 +86,43 @@ class PassCodeActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun doProcess() {
-        when (stage) {
-            Stage.ENTER -> {
-                if (passCode.equals(input)) {
+//        when (stage) {
+//            Stage.ENTER -> {
+//                if (passCode.equals(input)) {
+                    Toasty.success(this@PassCodeActivity, "onSuccess", Toast.LENGTH_SHORT).show()
                     var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
                     startActivity(intent)
-                } else {
-                    inputCount++
-                    Toasty.error(this, "incorrect : $inputCount times.", Toast.LENGTH_SHORT).show()
-                    input = ""
-                    updateInput()
-
-                    if (inputCount >= 5) {
-                        User.clearUser(this)
-                        finish()
-                    }
-                }
-            }
-            Stage.SET -> {
-                setPassCode = input
-                input = ""
-                stage = Stage.CONFIRM
-                pass_code_title.text = "กรุณาใส่รหัสยืนยัน PIN"
-                updateInput()
-            }
-            Stage.CONFIRM -> {
-                if (setPassCode.equals(input)) {
-                    User.setPassCode(this, input)
-                    var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    Toasty.error(this, "incorrect", Toast.LENGTH_SHORT).show()
-                    input = ""
-                    updateInput()
-                }
-            }
-        }
+//                } else {
+//                    inputCount++
+//                    Toasty.error(this, "incorrect : $inputCount times.", Toast.LENGTH_SHORT).show()
+//                    input = ""
+//                    updateInput()
+//
+//                    if (inputCount >= 5) {
+//                        User.clearUser(this)
+//                        finish()
+//                    }
+//                }
+//            }
+//            Stage.SET -> {
+//                setPassCode = input
+//                input = ""
+//                stage = Stage.CONFIRM
+//                pass_code_title.text = "กรุณาใส่รหัสยืนยัน PIN"
+//                updateInput()
+//            }
+//            Stage.CONFIRM -> {
+//                if (setPassCode.equals(input)) {
+//                    User.setPassCode(this, input)
+//                    var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
+//                    startActivity(intent)
+//                } else {
+//                    Toasty.error(this, "incorrect", Toast.LENGTH_SHORT).show()
+//                    input = ""
+//                    updateInput()
+//                }
+//            }
+//        }
     }
 
     private fun updateInput() {
