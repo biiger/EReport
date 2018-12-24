@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        tools:context=".module.register.CreateAccountDetailsActivity">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <RelativeLayout
+                    android:id="@+id/activity_create_account_details__rl_profile"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center">
+
+                <ImageView
+                        android:id="@+id/activity_create_account_details__iv_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_photo"/>
+
+                <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@mipmap/ic_add"/>
+            </RelativeLayout>
+
+            <EditText
+                    android:id="@+id/activity_create_account_details__et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:layout_marginTop="4dp"/>
+
+            <EditText
+                    android:id="@+id/activity_create_account_details__et_surname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/surname"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:layout_marginTop="4dp"/>
+
+            <EditText
+                    android:id="@+id/activity_create_account_details__et_tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/tel"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:layout_marginTop="4dp"/>
+
+            <EditText
+                    android:id="@+id/activity_create_account_details__et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:layout_marginTop="4dp"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <EditText
+                        android:id="@+id/activity_create_account_details__et_amphoe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/amphoe"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:layout_weight="1"
+                        android:layout_marginTop="4dp"/>
+
+                <EditText
+                        android:id="@+id/activity_create_account_details__et_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/district"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:layout_weight="1"
+                        android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                <Spinner
+                        android:id="@+id/activity_create_account_details__spn_province"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="4dp"/>
+
+                <EditText
+                        android:id="@+id/activity_create_account_details__et_postcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/postcode"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:layout_weight="1"
+                        android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <Button
+                    android:id="@+id/activity_create_account_details__bt_create_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/create_user"
+                    android:background="@drawable/btn_style"
+                    android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

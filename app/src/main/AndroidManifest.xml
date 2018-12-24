@@ -3,6 +3,7 @@
           package="com.arsoft.mobile.ereport">
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="true"
@@ -30,6 +31,13 @@
         <activity android:name=".PassCodeActivity"
                   android:theme="@style/Theme.AppCompat.NoActionBar"
                   android:screenOrientation="portrait">
+        <activity android:name=".module.register.RegisterActivity">
+        </activity>
+        <activity android:name=".module.register.BankLoadingActivity">
+        </activity>
+        <activity android:name=".module.register.CreateAccountActivity">
+        </activity>
+        <activity android:name=".module.register.CreateAccountDetailsActivity">
         </activity>
     </application>
 
