@@ -38,31 +38,49 @@ class PassCodeActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pass_code)
 
-        frigerprint.setOnClickListener {
-            FingerAuthDialog(this)
-                    .setTitle("Friger print authentication.")
-                    .setCancelable(false)
-                    .setMaxFailedCount(4) // Number of attemps, default 3
-                    .setOnFingerAuthListener(object : FingerAuth.OnFingerAuthListener {
-                        override fun onSuccess() {
-                            Toasty.success(this@PassCodeActivity, "onSuccess", Toast.LENGTH_SHORT).show()
-                            var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
-                            startActivity(intent)
+        FingerAuth(this)
+            .setMaxFailedCount(4) // Number of attemps, default 3
+            .setOnFingerAuthListener(object : FingerAuth.OnFingerAuthListener {
+                override fun onSuccess() {
+                    Toasty.success(this@PassCodeActivity, "onSuccess", Toast.LENGTH_SHORT).show()
+                    var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
+                    startActivity(intent)
+                }
 
-                        }
+                override fun onFailure() {
+                    Toasty.error(this@PassCodeActivity, "onFailure", Toast.LENGTH_SHORT).show()
+                }
 
-                        override fun onFailure() {
-                            Toasty.error(this@PassCodeActivity, "onFailure", Toast.LENGTH_SHORT).show()
-                        }
+                override fun onError() {
+                    Toasty.error(this@PassCodeActivity, "onError", Toast.LENGTH_SHORT).show()
+                }
+            })
 
-                        override fun onError() {
-                            Toasty.error(this@PassCodeActivity, "onError", Toast.LENGTH_SHORT).show()
-                        }
-                    })
-                    .show()
-        }
+//        frigerprint.setOnClickListener {
+//            FingerAuthDialog(this)
+//                    .setTitle("Friger print authentication.")
+//                    .setCancelable(false)
+//                    .setMaxFailedCount(4) // Number of attemps, default 3
+//                    .setOnFingerAuthListener(object : FingerAuth.OnFingerAuthListener {
+//                        override fun onSuccess() {
+//                            Toasty.success(this@PassCodeActivity, "onSuccess", Toast.LENGTH_SHORT).show()
+//                            var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
+//                            startActivity(intent)
+//
+//                        }
+//
+//                        override fun onFailure() {
+//                            Toasty.error(this@PassCodeActivity, "onFailure", Toast.LENGTH_SHORT).show()
+//                        }
+//
+//                        override fun onError() {
+//                            Toasty.error(this@PassCodeActivity, "onError", Toast.LENGTH_SHORT).show()
+//                        }
+//                    })
+//                    .show()
+//        }
 
-//        passCode = User.checkPassCode(this)
+        passCode = User.checkPassCode(this)
 //        if (passCode != null) {
 //            stage = Stage.ENTER
 //            pass_code_title.text = "กรุณายืนยันรหัส PIN"
@@ -89,9 +107,9 @@ class PassCodeActivity : AppCompatActivity(), View.OnClickListener {
 //        when (stage) {
 //            Stage.ENTER -> {
 //                if (passCode.equals(input)) {
-                    Toasty.success(this@PassCodeActivity, "onSuccess", Toast.LENGTH_SHORT).show()
-                    var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
-                    startActivity(intent)
+//                    Toasty.success(this@PassCodeActivity, "onSuccess", Toast.LENGTH_SHORT).show()
+//                    var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
+//                    startActivity(intent)
 //                } else {
 //                    inputCount++
 //                    Toasty.error(this, "incorrect : $inputCount times.", Toast.LENGTH_SHORT).show()
@@ -112,15 +130,15 @@ class PassCodeActivity : AppCompatActivity(), View.OnClickListener {
 //                updateInput()
 //            }
 //            Stage.CONFIRM -> {
-//                if (setPassCode.equals(input)) {
-//                    User.setPassCode(this, input)
-//                    var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
-//                    startActivity(intent)
-//                } else {
-//                    Toasty.error(this, "incorrect", Toast.LENGTH_SHORT).show()
-//                    input = ""
-//                    updateInput()
-//                }
+                if (passCode.equals(input)) {
+                    Toasty.success(this@PassCodeActivity, "onSuccess", Toast.LENGTH_SHORT).show()
+                    var intent = Intent(this@PassCodeActivity,MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toasty.error(this, "incorrect", Toast.LENGTH_SHORT).show()
+                    input = ""
+                    updateInput()
+                }
 //            }
 //        }
     }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.arsoft.mobile.ereport.R
+import com.arsoft.mobile.ereport.user.User
 import kotlinx.android.synthetic.main.activity_create_account.*
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -38,7 +39,7 @@ class CreateAccountActivity : AppCompatActivity() {
                 Toast.makeText(this, "รหัส PIN ไม่ตรงกัน", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-
+            User.setPassCode(this, pin)
             startActivity(Intent(this@CreateAccountActivity, CreateAccountDetailsActivity::class.java))
         }
     }
