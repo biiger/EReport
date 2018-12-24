@@ -18,4 +18,5 @@
     <string name="province">จังหวัด</string>
     <string name="postcode">รหัสไปรษณีย์</string>
     <string name="create_user">สร้างบัญชีผู้ใช้</string>
+    <string name="login">เข้าสู่ระบบ</string>
 </resources>

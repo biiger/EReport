@@ -26,4 +26,11 @@ class BankLoadingActivity : AppCompatActivity() {
             startActivity(Intent(this@BankLoadingActivity, CreateAccountActivity::class.java))
         }, 2000)
     }
+
+    override fun onStart() {
+        super.onStart()
+        Handler().postDelayed({
+            startActivity(Intent(this@BankLoadingActivity, CreateAccountActivity::class.java))
+        }, 2000)
+    }
 }

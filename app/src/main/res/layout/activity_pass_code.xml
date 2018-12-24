@@ -13,9 +13,9 @@
 
     <ImageView
             android:id="@+id/activity_pass_code_iv_icon"
-            android:src="@drawable/ic_credit"
+            android:src="@drawable/credit_logo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="150dp"/>
 
     <TextView
             android:id="@+id/pass_code_title"

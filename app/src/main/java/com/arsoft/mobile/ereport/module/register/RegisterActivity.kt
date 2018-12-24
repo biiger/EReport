@@ -24,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         SpinnerDataModel("ธนาคารไทยพาณิชย์", R.drawable.ic_scb),
         SpinnerDataModel("ธนาคารกรุงศรีอยุธยา", R.drawable.ic_krungsri)
     )
+    var bankSelected: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +35,31 @@ class RegisterActivity : AppCompatActivity() {
 
         activity_register__spn_bank.adapter = SpinnerAdapter(this, arrData)
 
+        activity_register__spn_bank.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (parent != null && parent.selectedView != null) {
+                    arrData.forEach {
+                        bankSelected = arrData[position].name
+                    }
+                }
+            }
+        }
+
         activity_register__bt_assure.setOnClickListener {
             val id_card = activity_register__et_id_card.text.toString()
             val bankSelected = activity_register__spn_bank.selectedItem.toString()
 
             if (id_card.isEmpty()) {
                 Toast.makeText(this@RegisterActivity, "กรุณากรอกเลขบัตรประชาชน", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            if (id_card.length < 13) {
+                Toast.makeText(this@RegisterActivity, "กรุณากรอกเลขบัตรประชาชนให้ถูกต้อง", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
@@ -84,7 +104,7 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(
                 Intent(this@RegisterActivity, BankLoadingActivity::class.java).putExtra(
                     "bankSelected",
-                    activity_register__spn_bank.selectedItem.toString()
+                    bankSelected
                 )
             )
         }

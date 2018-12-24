@@ -30,6 +30,10 @@ class CreateAccountActivity : AppCompatActivity() {
                 Toast.makeText(this, "กรุณายืนยันรหัส PIN", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
+            if (pin.length != 6 || pinConfirm.length != 6) {
+                Toast.makeText(this, "กรุณากรอกรหัส PIN จำนวน 6 ตัว", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
             if (!pin.equals(pinConfirm)) {
                 Toast.makeText(this, "รหัส PIN ไม่ตรงกัน", Toast.LENGTH_LONG).show()
                 return@setOnClickListener

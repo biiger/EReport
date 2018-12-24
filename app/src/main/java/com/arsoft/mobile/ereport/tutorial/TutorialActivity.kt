@@ -1,11 +1,11 @@
 package com.arsoft.mobile.ereport.tutorial
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.arsoft.mobile.ereport.PassCodeActivity
+import com.arsoft.mobile.ereport.LoginActivity
 import com.arsoft.mobile.ereport.R
 import kotlinx.android.synthetic.main.activity_tutorial.*
 
@@ -50,12 +50,12 @@ class TutorialActivity : AppCompatActivity() {
         })
 
         activity_tutorial_ll_button_skip.setOnClickListener {
-            var intent = Intent(this@TutorialActivity,PassCodeActivity::class.java)
+            var intent = Intent(this@TutorialActivity, LoginActivity::class.java)
             startActivity(intent)
         }
 
         activity_tutorial_bt_start.setOnClickListener {
-            var intent = Intent(this@TutorialActivity,PassCodeActivity::class.java)
+            var intent = Intent(this@TutorialActivity, LoginActivity::class.java)
             startActivity(intent)
         }
     }

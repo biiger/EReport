@@ -34,7 +34,6 @@
                 android:id="@+id/activity_bank_loading__iv_logo"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_below="@id/activity_bank_loading__tv_iden_process"
-                android:src="@drawable/scb_logo"/>
+                android:layout_below="@id/activity_bank_loading__tv_iden_process"/>
     </RelativeLayout>
 </RelativeLayout>
